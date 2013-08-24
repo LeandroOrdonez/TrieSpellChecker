@@ -1,0 +1,13 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+build/
+dis/
+nbproject/
+build.xml
+manifest.xml
+*.txt
+*.txt~
