@@ -80,14 +80,14 @@ public class TrieSpellChecker {
     }
 
     public static void main(String[] args) {
-        System.out.println(TrieSpellChecker.compoundSplitter("housenumbernumeric"));
-        System.out.println(TrieSpellChecker.compoundSplitter("wickedweather"));
-        System.out.println(TrieSpellChecker.compoundSplitter("liquidweather"));
-        System.out.println(TrieSpellChecker.compoundSplitter("driveourtrucks"));
-        System.out.println(TrieSpellChecker.compoundSplitter("gocompact"));
-        System.out.println(TrieSpellChecker.compoundSplitter("slimprojector"));
-        System.out.println(TrieSpellChecker.compoundSplitter("orcore"));
-        System.out.println(TrieSpellChecker.compoundSplitter("zipcode"));
-        System.out.println(TrieSpellChecker.compoundSplitter("asdkjkeerver"));
+        System.out.println(TrieSpellChecker.compoundSplitter("housenumbernumeric")); // -> house number numeric
+        System.out.println(TrieSpellChecker.compoundSplitter("wickedweather"));      // -> wicked weather
+        System.out.println(TrieSpellChecker.compoundSplitter("liquidweather"));      // -> liquid weather
+        System.out.println(TrieSpellChecker.compoundSplitter("driveourtrucks"));     // -> drive our trucks
+        System.out.println(TrieSpellChecker.compoundSplitter("gocompact"));          // -> go compact
+        System.out.println(TrieSpellChecker.compoundSplitter("slimprojector"));      // -> slim projector
+        System.out.println(TrieSpellChecker.compoundSplitter("orcore"));             // -> or core
+        System.out.println(TrieSpellChecker.compoundSplitter("zipcode"));            // -> zip code
+        System.out.println(TrieSpellChecker.compoundSplitter("asdkjkeerver"));       // -> asdkjkeerver
     }
 }
