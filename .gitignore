@@ -11,3 +11,5 @@ build.xml
 manifest.xml
 *.txt
 *.txt~
+/test/
+/dist/
