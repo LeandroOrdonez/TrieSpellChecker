@@ -48,13 +48,13 @@ public class TrieSpellChecker {
         if (DICT.contains(concatenatedWord)) {
             return concatenatedWord;
         } else {
-            String firstTerm, secondTerm, lastFirstCorrect = "";
+            String firstTerm, secondTerm, lastGoodFirst = "";
             int i = 2;
             while (i <= concatenatedWord.length()) {
                 firstTerm = concatenatedWord.substring(0, i);
                 secondTerm = concatenatedWord.substring(i);
                 if (DICT.contains(firstTerm)) {
-                    lastFirstCorrect = firstTerm;
+                    lastGoodFirst = firstTerm;
                     if (DICT.contains(secondTerm)) {
                         return firstTerm + " " + secondTerm;
                     } else {
@@ -63,10 +63,10 @@ public class TrieSpellChecker {
                     //return firstTerm + " " + secondTerm;
                 } else {
                     if (firstTerm.equals(concatenatedWord)) {
-                        if(level < 2){
-                            return lastFirstCorrect + " " + compoundSplitter(concatenatedWord.substring(lastFirstCorrect.length()), level+1);
+                        if(level < 1){
+                            return lastGoodFirst + " " + compoundSplitter(concatenatedWord.substring(lastGoodFirst.length()), level+1);
                         } else {
-                            return concatenatedWord;
+                            return (lastGoodFirst.equals(""))? "\b" + concatenatedWord : concatenatedWord;
                         }
                     } else {
                         i++;
@@ -74,13 +74,13 @@ public class TrieSpellChecker {
                 }
 
             }
-            System.out.println(lastFirstCorrect);
+//            System.out.println(lastFirstCorrect);
         }
         return "";
     }
 
     public static void main(String[] args) {
-        System.out.println(TrieSpellChecker.compoundSplitter("housenumbernumericzip"));
+        System.out.println(TrieSpellChecker.compoundSplitter("housenumbernumeric"));
         System.out.println(TrieSpellChecker.compoundSplitter("wickedweather"));
         System.out.println(TrieSpellChecker.compoundSplitter("liquidweather"));
         System.out.println(TrieSpellChecker.compoundSplitter("driveourtrucks"));
@@ -88,5 +88,6 @@ public class TrieSpellChecker {
         System.out.println(TrieSpellChecker.compoundSplitter("slimprojector"));
         System.out.println(TrieSpellChecker.compoundSplitter("orcore"));
         System.out.println(TrieSpellChecker.compoundSplitter("zipcode"));
+        System.out.println(TrieSpellChecker.compoundSplitter("asdkjkeerver"));
     }
 }
