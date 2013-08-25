@@ -45,7 +45,7 @@ public class TrieSpellChecker {
         if (DICT.isEmpty()) {
             initialize();
         }
-        if (DICT.contains(concatenatedWord)) {
+        if (DICT.contains(concatenatedWord) || DICT.contains(concatenatedWord.toLowerCase())) {
             return concatenatedWord;
         } else {
             String firstTerm, secondTerm, lastGoodFirst = "#none";
@@ -63,10 +63,10 @@ public class TrieSpellChecker {
                     //return firstTerm + " " + secondTerm;
                 } else {
                     if (firstTerm.equals(concatenatedWord)) {
-                        if(level < 1){
+                        if(level < 1 && !lastGoodFirst.equals("#none")){
                             return lastGoodFirst + " " + compoundSplitter(concatenatedWord.substring(lastGoodFirst.length()), level+1);
                         } else {
-                            return (lastGoodFirst.equals("#none"))? "\b" + concatenatedWord : concatenatedWord;
+                            return (level > 0)? "\b" + concatenatedWord : concatenatedWord;
                         }
                     } else {
                         i++;

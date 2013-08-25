@@ -12,3 +12,4 @@ manifest.xml
 *.txt
 *.txt~
 /test/
+/dist/
