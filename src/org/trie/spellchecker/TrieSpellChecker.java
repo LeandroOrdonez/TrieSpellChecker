@@ -6,7 +6,6 @@ package org.trie.spellchecker;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,7 +24,7 @@ public class TrieSpellChecker {
 
     public static void initialize() {
         try {
-            InputStream dictStream = TrieSpellChecker.class.getResourceAsStream("/docprocessing/util/american-english");
+            InputStream dictStream = TrieSpellChecker.class.getResourceAsStream("/org/trie/util/american-english");
             BufferedReader br = new BufferedReader(new InputStreamReader(dictStream));
             String line;
             while ((line = br.readLine()) != null) {
