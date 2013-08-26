@@ -6,8 +6,9 @@ package org.trie.spellchecker;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,7 +24,8 @@ public class TrieSpellChecker {
 
     public static void initialize() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/org/trie/util/american-english"));
+            InputStream dictStream = TrieSpellChecker.class.getResourceAsStream("/org/trie/util/american-english");
+            BufferedReader br = new BufferedReader(new InputStreamReader(dictStream));
             String line;
             while ((line = br.readLine()) != null) {
                 DICT.add(line);
@@ -45,7 +47,8 @@ public class TrieSpellChecker {
         if (DICT.isEmpty()) {
             initialize();
         }
-        if (DICT.contains(concatenatedWord) || DICT.contains(concatenatedWord.toLowerCase())) {
+        String altConcatenatedWord = new StringBuffer(concatenatedWord).insert(concatenatedWord.length()-1, "'").toString();
+        if (DICT.contains(concatenatedWord) || DICT.contains(concatenatedWord.toLowerCase()) || DICT.contains(altConcatenatedWord) || DICT.contains(altConcatenatedWord.toLowerCase())) {
             return concatenatedWord;
         } else {
             String firstTerm, secondTerm, lastGoodFirst = "#none";
