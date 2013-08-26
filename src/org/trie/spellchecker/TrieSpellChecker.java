@@ -56,7 +56,7 @@ public class TrieSpellChecker {
             while (i <= concatenatedWord.length()) {
                 firstTerm = concatenatedWord.substring(0, i);
                 secondTerm = concatenatedWord.substring(i);
-                if (DICT.contains(firstTerm)) {
+                if (DICT.contains(firstTerm)  || DICT.contains(firstTerm.toLowerCase())) {
                     lastGoodFirst = firstTerm;
                     if (DICT.contains(secondTerm)) {
                         return firstTerm + " " + secondTerm;
